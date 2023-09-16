@@ -64,7 +64,7 @@ const ContentGenerationView = ({ bookData, selectItem, selectPart, deletePart, g
                                     bookData.content[bookData.selectedChapter][bookData.selectedSection][bookData.selectedItem] &&
                                     bookData.content[bookData.selectedChapter][bookData.selectedSection][bookData.selectedItem][bookData.selectedPart]
                                     ? bookData.content[bookData.selectedChapter][bookData.selectedSection][bookData.selectedItem][bookData.selectedPart]
-                                    : 'Select part'
+                                    : 'Velg kreativ retning'
                             }
                         />
                     </div>
@@ -73,8 +73,8 @@ const ContentGenerationView = ({ bookData, selectItem, selectPart, deletePart, g
 
             <div className="content-bottom">
                 <button className="button-content" type="button" onClick={previousStep}>Tilbake</button>
-                {/* <button className={"button-content" + (bookData.isGenFull ? " button-waiting":"")} type="button">Full Generation</button>
-                <button className={"button-content" + (bookData.isGenFull ? " button-waiting":"")} type="button">Download</button> */}
+                <button className={"button-content" + (bookData.isGenFull ? " button-waiting":"")} type="button">Full generering</button>
+                {/*<button className={"button-content" + (bookData.isGenFull ? " button-waiting":"")} type="button">Last ned</button>*/}
             </div>
         </div>
     );

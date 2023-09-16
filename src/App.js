@@ -31,7 +31,6 @@ function App() {
 	const generateOutline = async () => {
 		let prompt = `Generate the Outline for the chapters, sections, and items of the sections of the book "${book.title}".\n`;
 		prompt += `The description of the book is: ${book.description}\n`;
-		prompt += `All tekst som blir generert skal være på norsk språk\n`;
 		prompt += "The result should be formatted as follows:\n";
 		prompt += "# Outline\n";
 		prompt += "Chapter 1. First chapter's name\n";
