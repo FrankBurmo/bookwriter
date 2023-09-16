@@ -9,12 +9,12 @@ import './App.css';
 
 function App() {
 	const [book, setBook] = useState({
-		title: 'Mathematics of quantitative finance',
-		description: 'Written for STEM students and professionals, this book provides extensive coverage of the mathematics of quantitative finance.',
+		title: 'Den siste monarken',
+		description: 'En krim du ikke klarer å legge fra deg som handler om hvordan en liten gruppe mennesker må beskytte Norges siste monark fra mørke krefter.',
 		rawOutline: '',
-		chapters: ["Example chapter"], // Array of strings containing the names of the chapters
-		sections: [["Click 'Generate' to generate outline"]], // 2D array containing the names of the sections of each chapter
-		items: [[["Some item"]]], // 3D array containing the names of the items of each section of each chapter
+		chapters: ["Eksempel kapittel"], // Array of strings containing the names of the chapters
+		sections: [["Klikk 'Generer' for å generere en disposisjon"]], // 2D array containing the names of the sections of each chapter
+		items: [[["Et element"]]], // 3D array containing the names of the items of each section of each chapter
 		parts: [[[[""]]]], // 4D array containing the names of the parts of each item of each section of each chapter
 		content: [[[[""]]]], // 4D array containing the content corresponding to each part of each item of each section of each chapter
 		isGenOutline: false,
@@ -31,6 +31,7 @@ function App() {
 	const generateOutline = async () => {
 		let prompt = `Generate the Outline for the chapters, sections, and items of the sections of the book "${book.title}".\n`;
 		prompt += `The description of the book is: ${book.description}\n`;
+		prompt += `All tekst som blir generert skal være på norsk språk\n`;
 		prompt += "The result should be formatted as follows:\n";
 		prompt += "# Outline\n";
 		prompt += "Chapter 1. First chapter's name\n";

@@ -5,19 +5,19 @@ import "./Description.css";
 const DescriptionView = ({ bookInfo, handleChange, nextStep }) => {
   return (
     <div className="container-form">
-        <p className="form-title">BookWriter</p>
+        <p className="form-title">Digital medforfatter</p>
         <div className="form-element">
-            <label className="label-input" >Title</label>
+            <label className="label-input" >Tittel</label>
             <input className="input-single" type="text" name="title" value={bookInfo.title} onChange={handleChange} />
         </div>
 
         <div className="form-element">
-            <label className="label-input">Description</label>
+            <label className="label-input">Beskrivelse</label>
             <textarea className="input-multiple" type="text" name="description" value={bookInfo.description} onChange={handleChange} />
         </div>
 
         <div className="form-element-bottom">
-            <button className="button-form" type="button" onClick={nextStep}>Outline</button>
+            <button className="button-form" type="button" onClick={nextStep}>Disposisjon</button>
         </div>
     </div>
   );

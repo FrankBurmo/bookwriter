@@ -8,7 +8,7 @@ const ContentGenerationView = ({ bookData, selectItem, selectPart, deletePart, g
     return (
         <div className="container-content">
             <div className="content-top">
-                <p className="content-title">Content Generation</p>
+                <p className="content-title">Generering av innhold</p>
             </div>
 
             <div className="container-content-middle">
@@ -35,7 +35,7 @@ const ContentGenerationView = ({ bookData, selectItem, selectPart, deletePart, g
 
                 <div className="container-content-generation">
                     <div className="container-gen">
-                        <button className={"button-content" + (bookData.isGenParts ? " button-waiting" : "")} type="button" disabled={bookData.isGenParts} onClick={genParts}>{bookData.isGenParts ? "Generating..." : "Parts"}</button>
+                        <button className={"button-content" + (bookData.isGenParts ? " button-waiting" : "")} type="button" disabled={bookData.isGenParts} onClick={genParts}>{bookData.isGenParts ? "Genererer..." : "Kapittel"}</button>
                         <div className="container-parts">
                             {
                                 (bookData.selectedChapter != null) && (bookData.selectedSection != null) && (bookData.selectedItem != null) ?
@@ -47,12 +47,12 @@ const ContentGenerationView = ({ bookData, selectItem, selectPart, deletePart, g
                                         </div>
                                     ))
                                     :
-                                    <p className="label-part">Select an item</p>
+                                    <p className="label-part">Velg et element</p>
                             }
                         </div>
                     </div>
                     <div className="container-gen">
-                        <button className={"button-content" + (bookData.isGenContent ? " button-waiting" : "")} type="button" disabled={bookData.isGenContent} onClick={genContent}>{bookData.isGenContent ? "Generating..." : "Content"}</button>
+                        <button className={"button-content" + (bookData.isGenContent ? " button-waiting" : "")} type="button" disabled={bookData.isGenContent} onClick={genContent}>{bookData.isGenContent ? "Genererer..." : "Innhold"}</button>
                         {/* <textarea className="input-content" type="text" name="content" value={bookData.content[bookData.selectedChapter]?.[bookData.selectedSection]?.[bookData.selectedItem]?.[bookData.selectedPart] ?? 'Select part'} /> */}
                         <textarea
                             className="input-content"
@@ -72,7 +72,7 @@ const ContentGenerationView = ({ bookData, selectItem, selectPart, deletePart, g
             </div>
 
             <div className="content-bottom">
-                <button className="button-content" type="button" onClick={previousStep}>Prev.</button>
+                <button className="button-content" type="button" onClick={previousStep}>Tilbake</button>
                 {/* <button className={"button-content" + (bookData.isGenFull ? " button-waiting":"")} type="button">Full Generation</button>
                 <button className={"button-content" + (bookData.isGenFull ? " button-waiting":"")} type="button">Download</button> */}
             </div>

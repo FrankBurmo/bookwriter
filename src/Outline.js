@@ -8,13 +8,13 @@ const OutlineView = ({bookData, genOutline, changeOutline, parseOutline, previou
     
     return (
         <div className="container-outline">
-            <p className="outline-title">Book Outline</p>
+            <p className="outline-title">Bokens disposisjon</p>
             <div className="container-outline-text">
-                <label className="label-text">Raw Outline</label>
+                <label className="label-text">Rå disposisjon</label>
                 <textarea className="input-outline" type="text" name="rawOutline" value={bookData.rawOutline} onChange={changeOutline}/>
             </div>
             <div className="container-outline-parsed">
-                <label className="label-parsed">Parsed Outline</label>
+                <label className="label-parsed">Strukturert disposisjon</label>
                 <div className="container-outline-labels">
                     {bookData.chapters.map((chap, index) => (
                         <div key={index}>
@@ -35,10 +35,10 @@ const OutlineView = ({bookData, genOutline, changeOutline, parseOutline, previou
             </div>
 
             <div className="outline-bottom">
-                <button className="button-outline" type="button" onClick={previousStep}>Prev.</button>
-                <button className={"button-outline"  + (bookData.isGenOutline ? " button-waiting":"")} type="button" disabled={bookData.isGenOutline} onClick={genOutline}>{bookData.isGenOutline ? "Generating...":"Generate"}</button>
-                <button className="button-outline" type="button" onClick={parseOutline}>Parse</button>
-                <button className="button-outline" type="button" onClick={nextStep}>Next</button>
+                <button className="button-outline" type="button" onClick={previousStep}>Tilbake</button>
+                <button className={"button-outline"  + (bookData.isGenOutline ? " button-waiting":"")} type="button" disabled={bookData.isGenOutline} onClick={genOutline}>{bookData.isGenOutline ? "Genererer...":"Generér"}</button>
+                <button className="button-outline" type="button" onClick={parseOutline}>Strukturere</button>
+                <button className="button-outline" type="button" onClick={nextStep}>Neste</button>
             </div>
         </div>
     );
