@@ -111,5 +111,6 @@ function parseParts(result) {
 }
 
 
-
-export default {fetchPromptResult, parseOutline, parseParts};
+// how can I rewrite this to avoid the eslint error: Assign object to a variable before exporting as module default  import/no-anonymous-default-export"?
+const exportsObject = {fetchPromptResult, parseOutline, parseParts};
+export default exportsObject;
