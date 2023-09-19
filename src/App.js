@@ -11,6 +11,7 @@ function App() {
 	const [book, setBook] = useState({
 		title: 'Den siste monarken',
 		description: 'En krim du ikke klarer å legge fra deg som handler om hvordan en liten gruppe mennesker må beskytte Norges siste monark fra mørke krefter.',
+		characters: '',
 		rawOutline: '',
 		chapters: ["Eksempel kapittel"], // Array of strings containing the names of the chapters
 		sections: [["Klikk 'Generer' for å generere en disposisjon"]], // 2D array containing the names of the sections of each chapter
@@ -129,7 +130,8 @@ function App() {
 	// Generate the content of the selected part
 	const generateContent = async () => {
 		let prompt = `The book's name is "${book.title}".\n`;
-		prompt += `The description of the book is "${book.description}"\n\n`;
+		prompt += `The description of the book is "${book.description}"\n`;
+		prompt += `Hvis du trenger noen navn på hovedpersoner, benytt disse: "${book.characters}"\n\n`;
 		prompt += `Write the content for the following part of the book:\n`;
 		prompt += `-${book.parts[book.selectedChapter][book.selectedSection][book.selectedItem][book.selectedPart]}\n`;
 		prompt += `The text must absolutely contain at least 1000 words !\n`;

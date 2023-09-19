@@ -16,6 +16,11 @@ const DescriptionView = ({ bookInfo, handleChange, nextStep }) => {
             <textarea className="input-multiple" type="text" name="description" value={bookInfo.description} onChange={handleChange} />
         </div>
 
+        <div className="form-element">
+            <label className="label-input">Hovedpersoner</label>
+            <textarea className="input-multiple" type="text" name="characters" value={bookInfo.characters} onChange={handleChange} />
+        </div>
+
         <div className="form-element-bottom">
             <button className="button-form" type="button" onClick={nextStep}>Disposisjon</button>
         </div>
