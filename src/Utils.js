@@ -52,7 +52,7 @@ function parseOutline(result) {
     let currentSection = -1; // Index of the current section
     let lines = result.split("\n");
     // We ignore all the lines preceding the "# Outline"
-    let outlineIndex = lines.findIndex(line => line.startsWith("# Outline"));
+    let outlineIndex = lines.findIndex(line => line.startsWith("# Disposisjon"));
     lines = lines.slice(outlineIndex+1);
     for (let i = 0; i < lines.length; i++) {
         // Remove leading and trailing spaces, and tabs
@@ -60,7 +60,7 @@ function parseOutline(result) {
         line = line.replace(/\t/g, "");
         if (line !== "") {
 
-            if (line.startsWith("Chapter")) {
+            if (line.startsWith("Kapittel")) {
                 currentChapter++;
                 currentSection = -1;
                 sections.push([]); // Add a new array for the sections of the new chapter
@@ -70,17 +70,17 @@ function parseOutline(result) {
 
                 // Capture the title of the chapter using regex
                 // Match "Chapter 1. Introduction" or "Chapter 1: Introduction"
-                let chapterTitle = line.match(/Chapter\s\d+\.\s(.*)/)[1];
+                let chapterTitle = line.match(/Kapittel\s\d+\.\s(.*)/)[1];
                 chapters.push(chapterTitle);
             }
-            else if (line.startsWith("Section")) {
+            else if (line.startsWith("Seksjon")) {
                 currentSection++;
                 items[currentChapter].push([]); // Add a new array for the items of the new section
                 parts[currentChapter].push([]); // Add a new array for the parts of the new section
                 content[currentChapter].push([]); // Add a new array for the content of the new section
                 // Capture the title of the section using regex
                 // Match "Section 1. Overview" or "Section 1: Overview"
-                let sectionTitle = line.match(/Section\s\d+\.\s(.*)/)[1];
+                let sectionTitle = line.match(/Seksjon\s\d+\.\s(.*)/)[1];
                 sections[currentChapter].push(sectionTitle);
             }
             else if (line.startsWith("-")) {

@@ -33,9 +33,9 @@ function App() {
 		let prompt = `Generate the Outline for the chapters, sections, and items of the sections of the book "${book.title}".\n`;
 		prompt += `The description of the book is: ${book.description}\n`;
 		prompt += "The result should be formatted as follows:\n";
-		prompt += "# Outline\n";
-		prompt += "Chapter 1. First chapter's name\n";
-		prompt += "\tSection 1. Title of section 1 of chapter 1\n"; // Use of \t for indentation in case VSCode converts tabs to spaces
+		prompt += "# Disposisjon\n";
+		prompt += "Kapittel 1. First chapter's name\n";
+		prompt += "\tSeksjon 1. Title of section 1 of chapter 1\n"; // Use of \t for indentation in case VSCode converts tabs to spaces
 		prompt += "\t\t-Some item of the section\n";
 		prompt += "\t\t-Another item\n";
 		prompt += "\t\t-Some other matter addressed\n";
@@ -58,7 +58,7 @@ function App() {
 		});
 		let result = await resultPromise;
 		// Remove all the lines before and including "# Outline"
-		result = result.split("# Outline")[1];
+		result = result.split("# Disposisjon")[1];
 		console.log("Raw outline: ", result)
 		setBook({
 			...book,
@@ -94,9 +94,9 @@ function App() {
 		prompt += `\t\tSubsection ${book.selectedItem + 1}. ${book.items[book.selectedChapter][book.selectedSection][book.selectedItem]}\n\n`;
 		prompt += `Give a list of the parts that should be included in the subsection "${book.items[book.selectedChapter][book.selectedSection][book.selectedItem]}".\n`;
 		prompt += `The result should be formatted as follows:\n`;
-		prompt += `-Introductory point\n`;
-		prompt += `-Explanation of the point\n`;
-		prompt += `-Another point\n`;
+		prompt += `-Introduksjonspoeng\n`;
+		prompt += `-Utdypning av poenget\n`;
+		prompt += `-Enda ett poeng\n`;
 		prompt += `...\n`;
 		
 		console.log("Prompt: ", prompt)
@@ -132,6 +132,7 @@ function App() {
 		let prompt = `The book's name is "${book.title}".\n`;
 		prompt += `The description of the book is "${book.description}"\n`;
 		prompt += `Hvis du trenger noen navn på hovedpersoner, benytt disse: "${book.characters}"\n\n`;
+		prompt += `All tekst som genereres skal være på norsk\n`;
 		prompt += `Write the content for the following part of the book:\n`;
 		prompt += `-${book.parts[book.selectedChapter][book.selectedSection][book.selectedItem][book.selectedPart]}\n`;
 		prompt += `The text must absolutely contain at least 1000 words !\n`;
