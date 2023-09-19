@@ -52,7 +52,7 @@ const ContentGenerationView = ({ bookData, selectItem, selectPart, deletePart, g
                         </div>
                     </div>
                     <div className="container-gen">
-                        <button className={"button-content" + (bookData.isGenContent ? " button-waiting" : "")} type="button" disabled={bookData.isGenContent} onClick={genContent}>{bookData.isGenContent ? "Genererer..." : "Innhold"}</button>
+                        <button className={"button-content" + (bookData.isGenContent ? " button-waiting" : "")} type="button" disabled={bookData.isGenContent} onClick={genContent}>{bookData.isGenContent ? "Genererer..." : "Generer innhold"}</button>
                         {/* <textarea className="input-content" type="text" name="content" value={bookData.content[bookData.selectedChapter]?.[bookData.selectedSection]?.[bookData.selectedItem]?.[bookData.selectedPart] ?? 'Select part'} /> */}
                         <textarea
                             className="input-content"
@@ -64,7 +64,7 @@ const ContentGenerationView = ({ bookData, selectItem, selectPart, deletePart, g
                                     bookData.content[bookData.selectedChapter][bookData.selectedSection][bookData.selectedItem] &&
                                     bookData.content[bookData.selectedChapter][bookData.selectedSection][bookData.selectedItem][bookData.selectedPart]
                                     ? bookData.content[bookData.selectedChapter][bookData.selectedSection][bookData.selectedItem][bookData.selectedPart]
-                                    : 'Velg kreativ retning'
+                                    : 'Velg innhold'
                             }
                         />
                     </div>
