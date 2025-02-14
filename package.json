@@ -13,9 +13,9 @@
     "babel-loader": "^8.0.0",
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-react": "^7.26.3",
     "eslint": "^8.0.0",
-    "eslint-plugin-react": "^7.0.0",
+    "eslint-plugin-react": "^7.37.4",
     "style-loader": "^3.0.0",
     "css-loader": "^6.0.0"
   },
