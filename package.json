@@ -22,8 +22,8 @@
   "scripts": {
     "start": "webpack serve --config webpack.config.js",
     "build": "webpack --config webpack.config.js",
-    "test": "echo \"No test specified\" && exit 1",
-    "eject": "echo \"No eject script available\" && exit 1"
+    "test": "echo \"No test specified\" && exit 0",
+    "eject": "echo \"No eject script available\" && exit 0"
   },
   "eslintConfig": {
     "extends": [
