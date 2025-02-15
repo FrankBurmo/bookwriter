@@ -13,6 +13,9 @@ updates:
       react:
         patterns:
           - "*react*"
+      babel:
+        patterns:
+          - "*babel*"
   - package-ecosystem: "github-actions" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
