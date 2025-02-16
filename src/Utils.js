@@ -3,7 +3,13 @@
 // The result is given as a promise that must be resolved.
 function fetchPromptResult(prompt) {
     let url = "https://api.openai.com/v1/chat/completions"
-    let apiKey = process.env.REACT_APP_OPENAI_API_KEY
+    let apiKey = process.env.REACT_APP_OPENAI_API_KEY;
+    // Regex validate the API key format.
+    let regex = /^sk-[a-zA-Z0-9]{48}$/;
+    if (!apiKey || !regex.test(apiKey)) {
+        console.log("Invalid OpenAI API key. Please check that the key stored in the .env file is valid.");
+        throw new Error("Invalid OpenAI API key.");
+    }
     
     let headers = {
         "Content-Type": "application/json",
@@ -12,10 +18,12 @@ function fetchPromptResult(prompt) {
 
     let model = "gpt-3.5-turbo"
     let messages = [{"role": "user", "content": prompt}]
+    let promptTokensApprox = prompt.split(" ").length;
     let data = {
         "model": model,
         "messages": messages,
-        "max_tokens": 3800,
+        // Model limit is 4096 tokens, take crude estimation of prompt token count, with some margin for safety.
+        "max_tokens": Math.floor(4096 - 1.5*promptTokensApprox - 100),
         "temperature": 0.3,
     }
 
@@ -25,10 +33,12 @@ function fetchPromptResult(prompt) {
         body: JSON.stringify(data)
     }
 
+    console.log("Sending API request to OpenAI...");
+
     return fetch(url, payload)
     .then(response => {
       if (!response.ok) {
-        throw new Error("Fetch error");
+        throw new Error(`HTTP error! status: ${response.status} statusText: ${response.statusText} raw response: ${response}`);
       }
       return response.json();
     }).then(data => {
@@ -36,7 +46,8 @@ function fetchPromptResult(prompt) {
         return data.choices[0].message.content;
     })
     .catch(error => {
-      console.error("Error when calling the OpenAI API", error);
+      console.error(`Error when querying API: ${error}`);
+      console.error("You can test your API access at https://platform.openai.com/playground")
     });
 }
 
