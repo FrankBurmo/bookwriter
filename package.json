@@ -11,7 +11,7 @@
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.0",
     "babel-loader": "^10.0.0",
-    "@babel/core": "^7.26.9",
+    "@babel/core": "^7.26.10",
     "@babel/preset-env": "^7.26.9",
     "@babel/preset-react": "^7.26.3",
     "eslint": "^9.22.0",
