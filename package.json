@@ -15,7 +15,6 @@
     "@babel/preset-env": "^7.29.3",
     "@babel/preset-react": "^7.28.5",
     "eslint": "^10.2.1",
-    "eslint-plugin-react": "^7.37.5",
     "style-loader": "^4.0.0",
     "css-loader": "^7.1.4"
   },
@@ -24,12 +23,6 @@
     "build": "webpack --config webpack.config.js --mode production",
     "test": "echo \"No test specified\" && exit 0",
     "eject": "echo \"No eject script available\" && exit 0"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
